@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: latest
+    commands:
+    - echo Running the install phase...
+    - java -version
+    - mvn --version
+  build:
+    commands:
+    - echo Building the application...
+    - mvn package -B
+  post_build:
+    commands:
+    - echo Build completed.
+    - ls -latr target/*.jar
+artifacts:
+  files:
+  - target/*.jar
