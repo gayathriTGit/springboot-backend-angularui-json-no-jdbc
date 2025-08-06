@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Latest News</h1>
+    
+    <div *ngIf="loading" class="loading">
+      Loading news...
+    </div>
+    
+    <div *ngIf="error" class="error">
+      Error loading news: {{error}}
+    </div>
+    
+    <div *ngIf="!loading && !error">
+      <p>Total articles: {{total}}</p>
+      
+      <div *ngFor="let article of news" class="news-item">
+        <div class="news-title">{{article.title}}</div>
+        <div class="news-author">By: {{article.author}}</div>
+        <div class="news-content">{{article.content}}</div>
+      </div>
+    </div>
+  </div>
